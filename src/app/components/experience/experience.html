@@ -1,0 +1,20 @@
+<section class="section" id="experiencia" appScrollReveal>
+  <h2><i class="bi bi-briefcase-fill" aria-hidden="true"></i> Experiencia</h2>
+  <div class="container">
+
+    @for (entry of entries(); track entry.company) {
+      <div class="exp-entry">
+        <div class="exp-head">
+          <h3>{{ entry.title }}</h3>
+          <span class="exp-dates"><i class="bi bi-calendar3" aria-hidden="true"></i> {{ entry.dateRange }}</span>
+        </div>
+        <p class="exp-company"><i class="bi bi-building" aria-hidden="true"></i> {{ entry.company }} · {{ entry.location }}</p>
+        <ul>
+          @for (highlight of entry.highlights; track highlight) {
+            <li>{{ highlight }}</li>
+          }
+        </ul>
+      </div>
+    }
+  </div>
+</section>

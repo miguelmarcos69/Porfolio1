@@ -1,0 +1,16 @@
+<section class="section contact" id="contacto" appScrollReveal>
+  <h2><i class="bi bi-chat-dots-fill" aria-hidden="true"></i> Hablemos</h2>
+  <p>¿Tienes un proyecto entre manos o buscas un desarrollador para tu equipo? Escríbeme, suelo responder rápido.</p>
+  <div class="contact-actions">
+    <a [href]="'mailto:' + profile().email" class="btn btn-primary icon-link">
+      <i class="bi bi-envelope-fill" aria-hidden="true"></i> Enviar email
+    </a>
+    <a [href]="'tel:' + profile().phone" class="btn btn-ghost icon-link">
+      <i class="bi bi-telephone-fill" aria-hidden="true"></i> Llamar
+    </a>
+    <a [href]="profile().linkedin" target="_blank" rel="noopener" class="btn btn-ghost icon-link">
+      <i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn
+    </a>
+  </div>
+  <p class="contact-location"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i> {{ profile().location }}</p>
+</section>

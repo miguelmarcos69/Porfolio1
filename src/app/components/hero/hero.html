@@ -1,0 +1,36 @@
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <p class="role">{{ profile().role }}</p>
+    <h1>{{ profile().name }}</h1>
+    <p class="tagline">{{ profile().tagline }}</p>
+    <div class="hero-actions">
+      <a routerLink="/proyectos" class="btn btn-primary icon-link">
+        Ver proyectos <i class="bi bi-arrow-right" aria-hidden="true"></i>
+      </a>
+      <a [href]="'mailto:' + profile().email" class="btn btn-ghost icon-link">
+        <i class="bi bi-envelope-fill" aria-hidden="true"></i> Hablemos
+      </a>
+    </div>
+    <ul class="hero-meta">
+      <li><a [href]="'mailto:' + profile().email" class="icon-link"><i class="bi bi-envelope" aria-hidden="true"></i> {{ profile().email }}</a></li>
+      <li><a [href]="'tel:' + profile().phone" class="icon-link"><i class="bi bi-telephone" aria-hidden="true"></i> {{ profile().phoneDisplay }}</a></li>
+      <li><a [href]="profile().linkedin" target="_blank" rel="noopener" class="icon-link"><i class="bi bi-linkedin" aria-hidden="true"></i> LinkedIn</a></li>
+      <li class="icon-link"><i class="bi bi-geo-alt" aria-hidden="true"></i> {{ profile().location }}</li>
+    </ul>
+  </div>
+
+  <div class="hero-graphic">
+    <svg class="circuit" viewBox="0 0 320 320" width="280" height="280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path class="trace" d="M40 60 H140 V120 H260" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="trace" d="M40 160 H100 V220 H200 V260" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="trace" d="M280 80 V180 H180 V160" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="trace" d="M60 260 H120 V200" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle class="node" cx="40" cy="60" r="5" fill="var(--accent)"/>
+      <circle class="node" cx="260" cy="120" r="5" fill="var(--accent)"/>
+      <circle class="node" cx="200" cy="260" r="5" fill="var(--accent)"/>
+      <circle class="node" cx="280" cy="80" r="5" fill="var(--accent)"/>
+      <circle class="node" cx="180" cy="160" r="5" fill="var(--accent)"/>
+      <circle class="node" cx="60" cy="260" r="5" fill="var(--accent)"/>
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+<article class="project-card">
+  <div class="project-head">
+    <h3><i [class]="'bi ' + project().icon" aria-hidden="true"></i> {{ project().name }}</h3>
+    <span class="project-tag">{{ project().tag }}</span>
+  </div>
+  <p class="desc">{{ project().description }}</p>
+  <span class="stack">{{ project().stack.join(' · ') }}</span>
+  <div class="project-footer">
+    <a [routerLink]="['/proyectos', project().slug]" class="detail-link icon-link">
+      Ver detalle <i class="bi bi-arrow-right" aria-hidden="true"></i>
+    </a>
+  </div>
+</article>

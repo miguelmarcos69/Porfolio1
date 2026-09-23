@@ -1,1 +1,218 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  box-sizing: border-box;
+  --bg: #F4F1DE;
+  --surface: color-mix(in srgb, #F4F1DE 40%, #FFFFFF);
+  --ink: #0D1B2A;
+  --muted: #778D7A;
+  --accent: #415A77;
+  --accent-soft: color-mix(in srgb, #415A77 15%, #F4F1DE);
+  --line: color-mix(in srgb, #D4C4A8 45%, #F4F1DE);
+  --on-accent: #FFFFFF;
+  padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0D1B2A;
+    --surface: #1B263B;
+    --ink: #F4F1DE;
+    --muted: #9EBDA3;
+    --accent: #D4C4A8;
+    --accent-soft: rgba(212, 196, 168, 0.18);
+    --line: #415A77;
+    --on-accent: #0D1B2A;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0D1B2A;
+  --surface: #1B263B;
+  --ink: #F4F1DE;
+  --muted: #9EBDA3;
+  --accent: #D4C4A8;
+  --accent-soft: rgba(212, 196, 168, 0.18);
+  --line: #415A77;
+  --on-accent: #0D1B2A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+/* main {
+  overflow-x: hidden;
+}
+ */
+/* ---------- Scrollbar ---------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+  height: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 0.5rem;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--ink);
+}
+
+.section {
+  max-width: 45rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section h2 i {
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bi {
+  vertical-align: -0.125em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.btn-primary:hover {
+  opacity: 0.88;
+  box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.btn-ghost {
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.stack span,
+.stack {
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .btn:hover,
+  .project-card:hover,
+  .detail-link:hover i {
+    transform: none;
+  }
+}

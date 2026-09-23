@@ -1,0 +1,14 @@
+<section class="section" id="formacion" appScrollReveal>
+  <h2><i class="bi bi-mortarboard-fill" aria-hidden="true"></i> Formación</h2>
+  <ul class="edu-list">
+    @for (entry of entries(); track entry.title) {
+      <li>
+        <div class="edu-head">
+          <span><i class="bi bi-mortarboard" aria-hidden="true"></i> {{ entry.title }}</span>
+          <span class="edu-dates"><i class="bi bi-calendar3" aria-hidden="true"></i> {{ entry.dateRange }}</span>
+        </div>
+        <p>{{ entry.institution }}</p>
+      </li>
+    }
+  </ul>
+</section>

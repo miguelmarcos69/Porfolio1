@@ -1,0 +1,14 @@
+<section class="section" id="habilidades" appScrollReveal>
+  <h2><i class="bi bi-stars" aria-hidden="true"></i> Habilidades</h2>
+
+  <div class="skills-grid">
+    @for (group of groups(); track group.title) {
+      <div class="skill-group">
+        <h4><i [class]="'bi ' + group.icon" aria-hidden="true"></i> {{ group.title }}</h4>
+        <p>{{ group.skills.join(' · ') }}</p>
+      </div>
+    }
+  </div>
+
+  <p class="soft-skills"><i class="bi bi-people-fill" aria-hidden="true"></i> {{ softSkills() }}</p>
+</section>

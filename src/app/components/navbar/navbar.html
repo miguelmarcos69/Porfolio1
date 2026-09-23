@@ -1,0 +1,48 @@
+<div class="nav-shell">
+  <header class="nav">
+    <a routerLink="/" class="brand" aria-label="Ir al inicio">
+      <i class="bi bi-code-slash" aria-hidden="true"></i>
+      <span>MM</span>
+    </a>
+
+    <nav class="nav-links">
+      @for (link of links; track link.label) {
+        <a [routerLink]="link.route" [fragment]="link.fragment" class="icon-link">
+          <i [class]="'bi ' + link.icon" aria-hidden="true"></i> {{ link.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="nav-actions">
+      <button
+        type="button"
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="theme() === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro'"
+      >
+        <i class="bi" [class.bi-sun-fill]="theme() === 'dark'" [class.bi-moon-stars-fill]="theme() !== 'dark'" aria-hidden="true"></i>
+      </button>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        aria-controls="mobile-menu"
+        [attr.aria-expanded]="isOpen()"
+        aria-label="Abrir menú de navegación"
+      >
+        <i class="bi" [class.bi-x-lg]="isOpen()" [class.bi-list]="!isOpen()" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  @if (isOpen()) {
+    <nav class="mobile-menu" id="mobile-menu">
+      @for (link of links; track link.label) {
+        <a [routerLink]="link.route" [fragment]="link.fragment" (click)="closeMenu()" class="icon-link">
+          <i [class]="'bi ' + link.icon" aria-hidden="true"></i> {{ link.label }}
+        </a>
+      }
+    </nav>
+  }
+</div>
