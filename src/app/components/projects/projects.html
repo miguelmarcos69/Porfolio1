@@ -1,12 +1,9 @@
 <section class="section" id="proyectos" appScrollReveal>
   <h2><i class="bi bi-kanban-fill" aria-hidden="true"></i> Proyectos</h2>
 
-  <div class="under-construction">
-    <div class="icon-stack">
-      <i class="bi bi-arrow-repeat spinner" aria-hidden="true"></i>
-      <i class="bi bi-lock-fill lock-badge" aria-hidden="true"></i>
-    </div>
-    <p class="title">En construcción</p>
-    <p class="subtitle">Estoy preparando esta sección. Muy pronto podrás ver aquí mis proyectos.</p>
+  <div class="project-list">
+    @for (project of projects(); track project.slug) {
+      <app-project-card [project]="project" />
+    }
   </div>
 </section>

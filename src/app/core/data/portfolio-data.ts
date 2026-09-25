@@ -73,6 +73,10 @@ export const PROJECTS: Project[] = [
     longDescription:
       'Un ecosistema completo para gestionar un restaurante de principio a fin: comandas en tiempo real con notificaciones entre sala y cocina, estadísticas de ventas y platos más pedidos de los últimos tres días, control de accesos por usuario, impresión de tickets en mesa y cobro desde el propio dispositivo. Construida con Angular e Ionic para funcionar tanto en tablet como en móvil Android, con un backend de webservices desplegado en Hostinger.',
     stack: ['Angular', 'Ionic', 'Webservices', 'Hostinger', 'Android'],
+    demo: {
+      url: 'https://mmsv1.netlify.app/tabs/tab1',
+      note: 'Demo de la interfaz. El backend está en desarrollo, así que algunas pantallas aún no muestran datos.',
+    },
   },
 ];
 

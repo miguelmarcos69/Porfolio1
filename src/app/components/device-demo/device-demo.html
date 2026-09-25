@@ -1,0 +1,42 @@
+<div class="demo">
+  <div class="phone">
+    <div class="screen">
+      @if (!loaded()) {
+        <div class="loading" aria-hidden="true">
+          <i class="bi bi-arrow-repeat"></i>
+        </div>
+      }
+      <iframe
+        #frame
+        [src]="safeUrl()"
+        [title]="'Demo interactiva de ' + name()"
+        loading="lazy"
+        (load)="loaded.set(true)"
+      ></iframe>
+    </div>
+  </div>
+
+  <div class="info">
+    @if (demo().credentials; as credentials) {
+      <dl class="credentials">
+        <dt>Usuario</dt>
+        <dd>{{ credentials.user }}</dd>
+        <dt>Contraseña</dt>
+        <dd>{{ credentials.password }}</dd>
+      </dl>
+    }
+
+    @if (demo().note) {
+      <p class="note"><i class="bi bi-info-circle" aria-hidden="true"></i> {{ demo().note }}</p>
+    }
+
+    <div class="actions">
+      <a class="btn btn-primary" [href]="demo().url" target="_blank" rel="noopener">
+        <span class="icon-link"><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i> Abrir a pantalla completa</span>
+      </a>
+      <button type="button" class="btn btn-ghost reload" (click)="reload()">
+        <span class="icon-link"><i class="bi bi-arrow-clockwise" aria-hidden="true"></i> Reiniciar demo</span>
+      </button>
+    </div>
+  </div>
+</div>

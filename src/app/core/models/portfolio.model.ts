@@ -24,6 +24,18 @@ export interface ExperienceEntry {
   highlights: string[];
 }
 
+export interface DemoCredentials {
+  user: string;
+  password: string;
+}
+
+export interface ProjectDemo {
+  /** Ruta al build web de la app, servido desde public/ */
+  url: string;
+  credentials?: DemoCredentials;
+  note?: string;
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -32,6 +44,7 @@ export interface Project {
   description: string;
   longDescription: string;
   stack: string[];
+  demo?: ProjectDemo;
 }
 
 export interface SkillGroup {

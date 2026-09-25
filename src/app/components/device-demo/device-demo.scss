@@ -1,0 +1,111 @@
+.demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.phone {
+  flex: none;
+  width: 384px;
+  height: 780px;
+  padding: 12px;
+  border-radius: 2.5rem;
+  background: #111;
+  box-shadow: 0 24px 48px -24px color-mix(in srgb, var(--ink) 60%, transparent);
+}
+
+.screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: var(--surface);
+
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  color: var(--accent);
+
+  i {
+    animation: demo-spin 1.4s linear infinite;
+  }
+}
+
+.info {
+  flex: 1 1 14rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.credentials {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.375rem 1rem;
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 0.375rem;
+  background: var(--surface);
+
+  dt {
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  dd {
+    margin: 0;
+    font-family: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: 0.9rem;
+  }
+}
+
+.note {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.reload {
+  background: none;
+  font-family: inherit;
+}
+
+// En pantallas estrechas el marco no cabe: se muestra solo el acceso a pantalla completa.
+// Con display:none y loading="lazy" el iframe no llega a cargarse.
+@media (max-width: 480px) {
+  .phone,
+  .reload {
+    display: none;
+  }
+}
+
+@keyframes demo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading i {
+    animation: none;
+  }
+}

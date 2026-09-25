@@ -56,6 +56,19 @@
 
 .project-footer {
   margin-top: 1.125rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.demo-badge {
+  font-size: 0.8rem;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 1rem;
+  padding: 0.125rem 0.625rem;
 }
 
 .detail-link {

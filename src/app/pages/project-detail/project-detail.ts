@@ -1,11 +1,12 @@
 import { Component, computed, effect, inject, input } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router, RouterLink } from '@angular/router';
+import { DeviceDemo } from '../../components/device-demo/device-demo';
 import { PortfolioDataService } from '../../core/services/portfolio-data.service';
 
 @Component({
   selector: 'app-project-detail',
-  imports: [RouterLink],
+  imports: [RouterLink, DeviceDemo],
   templateUrl: './project-detail.html',
   styleUrl: './project-detail.scss',
 })

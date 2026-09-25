@@ -6,6 +6,9 @@
   <p class="desc">{{ project().description }}</p>
   <span class="stack">{{ project().stack.join(' · ') }}</span>
   <div class="project-footer">
+    @if (project().demo) {
+      <span class="demo-badge"><i class="bi bi-phone" aria-hidden="true"></i> Demo interactiva</span>
+    }
     <a [routerLink]="['/proyectos', project().slug]" class="detail-link icon-link">
       Ver detalle <i class="bi bi-arrow-right" aria-hidden="true"></i>
     </a>

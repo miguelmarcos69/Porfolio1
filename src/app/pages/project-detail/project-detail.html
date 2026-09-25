@@ -9,6 +9,13 @@
 
     <p class="desc">{{ project.longDescription }}</p>
 
+    @if (project.demo; as demo) {
+      <h2>Pruébala</h2>
+      <div class="demo-block">
+        <app-device-demo [demo]="demo" [name]="project.name" />
+      </div>
+    }
+
     <h2>Stack tecnológico</h2>
     <ul class="stack-list">
       @for (item of project.stack; track item) {
